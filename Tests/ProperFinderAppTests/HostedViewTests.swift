@@ -192,7 +192,8 @@ struct HostedViewTests {
         defer { hosted.close() }
         let field = try #require(await hosted.textField("pathField"))
         hosted.browser.model.focusContent()
-        #expect(await hosted.waitFor { field.currentEditor() == nil })
+        #expect(await hosted.waitFor { hosted.fileListHasFocus() })
+        #expect(field.currentEditor() == nil)
         hosted.browser.model.beginPathEditing()
         #expect(await hosted.waitFor { field.currentEditor() != nil })
         #expect(field.currentEditor()?.selectedRange == NSRange(location: 0, length: hosted.browser.dir.root.path.utf16.count))
