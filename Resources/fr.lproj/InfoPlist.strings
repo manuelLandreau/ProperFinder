@@ -1,0 +1,6 @@
+"NSDesktopFolderUsageDescription" = "ProperFinder affiche et gère les fichiers de votre Bureau.";
+"NSDocumentsFolderUsageDescription" = "ProperFinder affiche et gère les fichiers de votre dossier Documents.";
+"NSDownloadsFolderUsageDescription" = "ProperFinder affiche et gère les fichiers de votre dossier Téléchargements.";
+"NSRemovableVolumesUsageDescription" = "ProperFinder affiche et gère les fichiers des disques amovibles.";
+"NSNetworkVolumesUsageDescription" = "ProperFinder affiche et gère les fichiers des volumes réseau.";
+"NSFileProviderDomainUsageDescription" = "ProperFinder affiche et gère les fichiers de vos services de stockage en ligne.";

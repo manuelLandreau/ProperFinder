@@ -1,0 +1,3 @@
+import ProperFinderApp
+
+ProperFinderApp.main()

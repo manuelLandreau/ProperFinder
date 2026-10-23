@@ -1,0 +1,47 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE plist PUBLIC "-//Apple//DTD PLIST 1.0//EN" "http://www.apple.com/DTDs/PropertyList-1.0.dtd">
+<plist version="1.0">
+<dict>
+	<key>CFBundleDevelopmentRegion</key>
+	<string>en</string>
+	<key>CFBundleLocalizations</key>
+	<array>
+		<string>en</string>
+		<string>fr</string>
+	</array>
+	<key>CFBundleDisplayName</key>
+	<string>ProperFinder</string>
+	<key>CFBundleExecutable</key>
+	<string>ProperFinder</string>
+	<key>CFBundleIconFile</key>
+	<string>AppIcon</string>
+	<key>CFBundleIdentifier</key>
+	<string>fr.manuellandreau.properfinder</string>
+	<key>CFBundleName</key>
+	<string>ProperFinder</string>
+	<key>CFBundlePackageType</key>
+	<string>APPL</string>
+	<key>CFBundleShortVersionString</key>
+	<string>0.1.0</string>
+	<key>CFBundleVersion</key>
+	<string>1</string>
+	<key>LSApplicationCategoryType</key>
+	<string>public.app-category.utilities</string>
+	<key>LSMinimumSystemVersion</key>
+	<string>15.0</string>
+	<key>NSHighResolutionCapable</key>
+	<true/>
+	<key>NSDesktopFolderUsageDescription</key>
+	<string>ProperFinder lists and manages the files on your Desktop.</string>
+	<key>NSDocumentsFolderUsageDescription</key>
+	<string>ProperFinder lists and manages the files in your Documents folder.</string>
+	<key>NSDownloadsFolderUsageDescription</key>
+	<string>ProperFinder lists and manages the files in your Downloads folder.</string>
+	<key>NSRemovableVolumesUsageDescription</key>
+	<string>ProperFinder lists and manages the files on removable drives.</string>
+	<key>NSNetworkVolumesUsageDescription</key>
+	<string>ProperFinder lists and manages the files on network volumes.</string>
+	<key>NSFileProviderDomainUsageDescription</key>
+	<string>ProperFinder lists and manages the files of your cloud storage providers.</string>
+</dict>
+</plist>

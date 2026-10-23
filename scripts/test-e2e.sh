@@ -1,0 +1,6 @@
+#!/bin/bash
+set -euo pipefail
+cd "$(dirname "$0")/.."
+
+./scripts/build-app.sh
+PROPERFINDER_E2E=1 exec ./scripts/test.sh --filter ProperFinderE2ETests "$@"
