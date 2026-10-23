@@ -1,8 +1,16 @@
+<img src="docs/icon.png" width="128" alt="ProperFinder icon">
+
 # ProperFinder
 
 **A free and open-source file browser for macOS.**
 
 ProperFinder is a simplified Finder with a few Dolphin-style extras: a plain address bar you can type or paste a path into, "Copy Path" everywhere, "New File" next to "New Folder", "Open in Terminal" and a hidden-files toggle in the toolbar. It is written from scratch in Swift (AppKit + SwiftUI), with native controls and no dependencies.
+
+![List view with the address bar](docs/screenshots/list.png)
+
+| Right-click: New File, Copy Path, Open in Terminal | Icon view |
+|---|---|
+| ![Context menu](docs/screenshots/context-menu.png) | ![Icon view](docs/screenshots/icons.png) |
 
 ## Features
 
