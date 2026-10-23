@@ -187,7 +187,10 @@ struct HostedViewTests {
         #expect(field.stringValue == missing)
     }
 
-    @Test func editPathCommandFocusesTheFieldWithEverythingSelected() async throws {
+    // GitHub's macOS runner never activates the test process (measured: key window false, app active false), and AppKit
+    // gives a text field no editor in a window that isn't key. The E2E suite covers ⌘L against the real app.
+    @Test(.disabled(if: ProcessInfo.processInfo.environment["CI"] != nil, "needs a key window, which CI runners never give"))
+    func editPathCommandFocusesTheFieldWithEverythingSelected() async throws {
         let hosted = try HostedWindow()
         defer { hosted.close() }
         let field = try #require(await hosted.textField("pathField"))
