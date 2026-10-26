@@ -168,6 +168,16 @@ struct E2ETests {
         }
     }
 
+    @Test func getInfoShowsTheItemAndWhereItLives() async throws {
+        try await withApp { app, root in
+            try app.pressContextMenuItem("Get Info", on: app.element("item.Sub"))
+            #expect(app.value(try app.element("info.name")) == "Sub")
+            #expect(samePath(app.value(try app.element("info.where")), root))
+            let size = try app.element("info.size")
+            #expect(app.poll(5) { app.value(size)?.hasSuffix("for 1 item") == true }, "size: \(app.value(size) ?? "-")")
+        }
+    }
+
     @Test func backAndForwardAfterEnteringSubfolder() async throws {
         try await withApp { app, _ in
             #expect(app.attribute(try app.element("backButton"), kAXEnabledAttribute) as? Bool == false)

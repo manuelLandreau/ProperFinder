@@ -18,10 +18,11 @@ ProperFinder is a simplified Finder with a few Dolphin-style extras: a plain add
 - **Sidebar** like Finder's: Home, Desktop, Documents, Downloads, Applications and your own favorites (drop a folder on the section or use *Add to Favorites*, reorder by drag); **Cloud** (iCloud Drive and every `~/Library/CloudStorage` provider: Google Drive, OneDrive, Dropbox, Box…); **Locations** (mounted volumes, with an eject button); **Trash** with *Empty Trash*.
 - **List view** (name, date modified, size, kind; sortable, folders first, multi-selection) and **icon view**.
 - **New Folder / New File** (`untitled.txt`) that start an inline rename with the base name selected.
-- **Context menus**: Open, Open With, Quick Look, Rename, Copy, Copy Path, Add to Favorites, Move to Trash on items; New Folder, New File, Paste, Move Here, Copy Path, Open in Terminal, Show Hidden Files, Add to Favorites on the background.
+- **Context menus**: Open, Open With, Quick Look, Rename, Get Info, Copy, Copy Path, Add to Favorites, Move to Trash on items; New Folder, New File, Paste, Move Here, Copy Path, Get Info, Open in Terminal, Show Hidden Files, Add to Favorites on the background.
 - **Copy / paste / move** never overwrite: a name collision keeps both, like Finder. Drag and drop moves on the same volume and copies across volumes.
+- **Get Info** (⌘I): kind, size (folders counted in the background), location, creation and modification dates, all selectable.
 - **Quick Look** with Space, **search** in the current folder (case and diacritic insensitive), **hidden files** with ⌘⇧., a status bar with the item count and free space.
-- **Finder shortcuts**: ⌘[ ⌘] ⌘↑ ⌘↓ ⌘O, ⌘⇧N, ⌥⌘N, Return to rename, ⌘⌫, ⌘C, ⌘V, ⌥⌘V, ⌥⌘C, ⌘⇧H / D / O / A, ⌥⌘L, ⌘N for a new window. All are in the File, Edit, View and Go menus.
+- **Finder shortcuts**: ⌘[ ⌘] ⌘↑ ⌘↓ ⌘O, ⌘I, ⌘⇧N, ⌥⌘N, Return to rename, ⌘⌫, ⌘C, ⌘V, ⌥⌘V, ⌥⌘C, ⌘⇧H / D / O / A, ⌥⌘L, ⌘N for a new window. All are in the File, Edit, View and Go menus.
 - The folder updates by itself when files change on disk.
 - English and French.
 

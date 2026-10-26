@@ -15,6 +15,8 @@ public struct FileItem: Hashable, Identifiable, Sendable {
         .isDirectoryKey, .isPackageKey, .isSymbolicLinkKey, .contentModificationDateKey, .fileSizeKey, .contentTypeKey,
     ]
 
+    public init(url: URL) throws { try self.init(url: url, valuesFrom: url) }
+
     init(url: URL, valuesFrom source: URL) throws {
         let values = try source.resourceValues(forKeys: Self.keys)
         var isDirectory = values.isDirectory == true
@@ -72,6 +74,18 @@ private func compare<T: Comparable>(_ a: T, _ b: T) -> ComparisonResult {
 public func filterItems(_ items: [FileItem], matching query: String) -> [FileItem] {
     let query = query.trimmingCharacters(in: .whitespaces)
     return query.isEmpty ? items : items.filter { $0.name.localizedStandardContains(query) }
+}
+
+// Logical bytes, Finder's first figure, not the allocated size on disk.
+public func directorySize(_ url: URL) async -> (bytes: Int64, items: Int)? {
+    guard let walk = FileManager.default.enumerator(at: url, includingPropertiesForKeys: [.fileSizeKey]) else { return nil }
+    var bytes: Int64 = 0, items = 0
+    while let child = walk.nextObject() as? URL {
+        if Task.isCancelled { return nil }
+        items += 1
+        bytes += Int64((try? child.resourceValues(forKeys: [.fileSizeKey]))?.fileSize ?? 0)
+    }
+    return (bytes, items)
 }
 
 public func availableCapacity(at url: URL) -> Int64? {

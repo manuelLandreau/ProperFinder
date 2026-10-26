@@ -71,3 +71,10 @@
 "%lld items" = "%lld éléments";
 "%@, %@ available" = "%1$@, %2$@ disponibles";
 "%@ (default)" = "%@ (par défaut)";
+"Get Info" = "Lire les informations";
+"Info" = "Informations";
+"Calculating…" = "Calcul en cours…";
+"%@ for %@" = "%1$@ pour %2$@";
+"Where" = "Emplacement";
+"Created" = "Création";
+"Modified" = "Modification";

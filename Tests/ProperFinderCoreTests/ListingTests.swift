@@ -106,4 +106,14 @@ final class ListingTests: TempDirectory {
     @Test func reportsAvailableCapacity() {
         #expect((availableCapacity(at: root) ?? 0) > 0)
     }
+
+    @Test func directorySizeSumsNestedFilesAndCountsEveryItem() async throws {
+        try file("a.txt", "12345")
+        try file("sub/b.txt", "123")
+        try folder("empty")
+
+        let size = try #require(await directorySize(root))
+        #expect(size.bytes == 8)
+        #expect(size.items == 4)
+    }
 }

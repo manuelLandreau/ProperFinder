@@ -295,8 +295,7 @@ final class BrowserModel {
     }
 
     var statusText: String {
-        let count = visibleItems.count
-        let items = count == 1 ? String(localized: "1 item") : String(localized: "\(count) items")
+        let items = itemCount(visibleItems.count)
         guard let availableSpace else { return items }
         let space = ByteCountFormatter.string(fromByteCount: availableSpace, countStyle: .file)
         return String(localized: "\(items), \(space) available")
@@ -361,4 +360,8 @@ final class Places {
     func url(named id: String) -> URL? {
         all.first { $0.accessibilityID == id }?.url
     }
+}
+
+func itemCount(_ count: Int) -> String {
+    count == 1 ? String(localized: "1 item") : String(localized: "\(count) items")
 }

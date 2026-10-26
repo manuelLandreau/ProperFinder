@@ -309,6 +309,7 @@ struct IconCell: View {
 struct ItemMenu: View {
     let model: BrowserModel
     let urls: [URL]
+    @Environment(\.openWindow) private var openWindow
 
     private var folders: [URL] { urls.filter { model.item(at: $0)?.isFolder == true } }
 
@@ -326,6 +327,7 @@ struct ItemMenu: View {
         if urls.count == 1 {
             Button("Rename") { model.beginRename(urls[0]) }
         }
+        Button("Get Info") { urls.forEach { openWindow(id: "info", value: $0) } }
         Divider()
         Button("Copy") { model.copyToPasteboard(urls) }
         Button("Copy Path") { model.copyPaths(urls) }
@@ -369,6 +371,7 @@ struct OpenWithMenu: View {
 
 struct BackgroundMenu: View {
     let model: BrowserModel
+    @Environment(\.openWindow) private var openWindow
 
     var body: some View {
         Button("New Folder") { model.newFolder() }
@@ -380,6 +383,7 @@ struct BackgroundMenu: View {
             .disabled(!model.canPaste)
         Divider()
         Button("Copy Path") { model.copyPaths([model.currentURL]) }
+        Button("Get Info") { openWindow(id: "info", value: model.currentURL) }
         Button("Open in Terminal") { model.openInTerminal() }
         Divider()
         Toggle("Show Hidden Files", isOn: Binding(get: { model.showHidden }, set: { model.showHidden = $0 }))

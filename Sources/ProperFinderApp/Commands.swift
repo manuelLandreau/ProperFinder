@@ -3,6 +3,7 @@ import SwiftUI
 
 struct BrowserCommands: Commands {
     @FocusedValue(\.browser) private var model: BrowserModel?
+    @Environment(\.openWindow) private var openWindow
 
     /// Edit shortcuts (⌘C, ⌘V, ⌘⌫…) are menu key equivalents, which win over the focused text field: hand them back to it.
     private func editingText(_ action: Selector) -> Bool {
@@ -31,6 +32,9 @@ struct BrowserCommands: Commands {
                 .disabled(model?.selection.isEmpty ?? true)
             Button("Rename") { model.map { $0.selectedURLs.first.map($0.beginRename) } }
                 .disabled(model?.selection.count != 1)
+            Button("Get Info") { model?.selectedURLs.forEach { openWindow(id: "info", value: $0) } }
+                .keyboardShortcut("i")
+                .disabled(model?.selection.isEmpty ?? true)
             Divider()
             Button("Move to Trash") {
                 if !editingText(#selector(NSResponder.deleteToBeginningOfLine(_:))) { model.map { $0.trash($0.selectedURLs) } }

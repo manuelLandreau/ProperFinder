@@ -43,6 +43,12 @@ public struct ProperFinderApp: App {
         .defaultSize(width: 1100, height: 700)
         .restorationBehavior(launch.uiTesting ? .disabled : .automatic)
         .commands { BrowserCommands() }
+
+        WindowGroup("Info", id: "info", for: URL.self) { $url in
+            if let url { InfoView(url: url).navigationTitle(url.lastPathComponent) }
+        }
+        .windowResizability(.contentSize)
+        .restorationBehavior(.disabled)
     }
 }
 
